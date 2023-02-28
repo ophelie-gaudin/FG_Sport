@@ -22,22 +22,6 @@
 		de formation pour les instructeurs.
 	</h3>
 	<div class="vertical-div-flex"><a href="#jumping-description">En savoir plus</a></div>
-	<!-- <h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter /> -->
 </section>
 
 <section id="jumping-description">

@@ -1,27 +1,20 @@
 <script>
 	import { page } from '$app/stores';
-	import logo from '$lib/images/fg-logo.png';
 </script>
 
-<div class="corner">
-	<a href="/">
-		<img src={logo} alt="FG sport logo" />
-	</a>
-</div>
-
-<nav>
+<nav class="hidden md:flex">
 	<svg viewBox="0 0 2 3" aria-hidden="true">
 		<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 	</svg>
 	<ul>
 		<li aria-current={$page.url.pathname === '#jumping-description' ? 'page' : undefined}>
-			<a href="#jumping-description">Qu'est-ce que le jumping ?</a>
+			<a href="/#jumping-description">Qu'est-ce que le jumping ?</a>
 		</li>
 		<li aria-current={$page.url.pathname === '#facebook-feed' ? 'page' : undefined}>
-			<a href="#facebook-feed">Actualités</a>
+			<a href="/#facebook-feed">Actualités</a>
 		</li>
 		<li aria-current={$page.url.pathname === '#services' ? 'page' : undefined}>
-			<a href="#services">Nos services</a>
+			<a href="/#services">Nos services</a>
 		</li>
 		<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
 			<a href="/about">Qui sommes-nous ?</a>
@@ -30,10 +23,6 @@
 			<a href="/sverdle">Nous contacter</a>
 		</li>
 	</ul>
-
-	<!-- <svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg> -->
 </nav>
 
 <style>
