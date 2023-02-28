@@ -1,6 +1,6 @@
 <script>
-	import Navbar from './Navbar.svelte';
-	import SmallNavbar from './SmallNavbar.svelte';
+	import Navbar from './Navbar/Navbar.svelte';
+	import SmallNavbar from './Navbar/SmallNavbar.svelte';
 	import logo from '$lib/images/fg-logo.png';
 </script>
 
@@ -10,7 +10,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 
-<header>
+<header class="md:fixed bg-white">
 	<div class="corner">
 		<a href="/">
 			<img src={logo} alt="FG sport logo" />
@@ -22,7 +22,6 @@
 
 <style>
 	header {
-		position: fixed;
 		overflow: hidden;
 		display: flex;
 		justify-content: space-between;
