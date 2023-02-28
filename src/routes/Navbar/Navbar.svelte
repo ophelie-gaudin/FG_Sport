@@ -8,13 +8,13 @@
 	</svg>
 	<ul>
 		<li aria-current={$page.url.pathname === '#jumping-description' ? 'page' : undefined}>
-			<a href="#jumping-description">Qu'est-ce que le jumping ?</a>
+			<a href="/#jumping-description">Qu'est-ce que le jumping ?</a>
 		</li>
 		<li aria-current={$page.url.pathname === '#facebook-feed' ? 'page' : undefined}>
-			<a href="#facebook-feed">Actualités</a>
+			<a href="/#facebook-feed">Actualités</a>
 		</li>
 		<li aria-current={$page.url.pathname === '#services' ? 'page' : undefined}>
-			<a href="#services">Nos services</a>
+			<a href="/#services">Nos services</a>
 		</li>
 		<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
 			<a href="/about">Qui sommes-nous ?</a>
