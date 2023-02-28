@@ -10,7 +10,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 
-<header class="md:fixed bg-white">
+<header class="fixed bg-white md:bg-white/0">
 	<div class="corner">
 		<a href="/">
 			<img src={logo} alt="FG sport logo" />

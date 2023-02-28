@@ -2,7 +2,7 @@
 	export let open = false;
 </script>
 
-<aside class="absolute w-full bg-white border-r-2 shadow-lg" class:open>
+<aside class="fixed w-full bg-white border-r-2 shadow-lg" class:open>
 	<nav class="p-12 text-xl">
 		<ul>
 			<a class="block" href="#jumping-description">Qu'est-ce que le jumping ?</a>
