@@ -2,8 +2,8 @@
 	import logo from '$lib/images/fg-logo.png';
 </script>
 
-<footer class="flex flex-col md:flex-row">
-	<div class="corner">
+<footer class="flex flex-col md:flex-row items-center md:items-start">
+	<div class="md:items-start">
 		<a href="/">
 			<img src={logo} alt="FG sport logo" />
 		</a>
@@ -17,9 +17,9 @@
 		</ul>
 	</div>
 
-	<div class="flex-col items-center">
+	<div class="flex-col items-center md:items-start  w-1/2">
 		<p>Retrouvez-nous aussi sur :</p>
-		<ul class="flex-row justify-around w-1/2">
+		<ul class="flex-row justify-around w-full">
 			<li>
 				<a href="https://instagram.com/fgsportfrance">Insta</a>
 			</li>
