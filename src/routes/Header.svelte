@@ -1,5 +1,7 @@
 <script>
 	import Navbar from './Navbar.svelte';
+	import SmallNavbar from './SmallNavbar.svelte';
+	import logo from '$lib/images/fg-logo.png';
 </script>
 
 <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
@@ -9,7 +11,13 @@
 />
 
 <header>
+	<div class="corner">
+		<a href="/">
+			<img src={logo} alt="FG sport logo" />
+		</a>
+	</div>
 	<Navbar />
+	<SmallNavbar />
 </header>
 
 <style>
