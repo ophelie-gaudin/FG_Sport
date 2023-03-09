@@ -48,7 +48,11 @@
 	nav {
 		display: flex;
 		justify-content: center;
+<<<<<<< Updated upstream
 		--background: rgba(255, 255, 255, 0.7);
+=======
+		--background: rgba(245, 245, 245, 0.9);
+>>>>>>> Stashed changes
 	}
 
 	svg {

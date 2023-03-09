@@ -1,7 +1,20 @@
 <script>
 	import Navbar from './Navbar/Navbar.svelte';
 	import SmallNavbar from './Navbar/SmallNavbar.svelte';
-	import logo from '$lib/images/fg-logo.png';
+	import logo from '../lib/images/fg_logo.png';
+
+	// window.onscroll = function () {
+	// 	growShrinkLogo();
+	// };
+
+	// function growShrinkLogo() {
+	// 	const logoEl = document.getElementById('logo-img');
+	// 	if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+	// 		logoEl.style.width = '80px';
+	// 	} else {
+	// 		logoEl.style.width = '100px';
+	// 	}
+	// }
 </script>
 
 <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
@@ -13,7 +26,7 @@
 <header class="fixed bg-white md:bg-white/0">
 	<div class="corner">
 		<a href="/">
-			<img src={logo} alt="FG sport logo" />
+			<img id="logo-img" src={logo} alt="FG sport logo" />
 		</a>
 	</div>
 	<Navbar />
@@ -22,9 +35,14 @@
 
 <style>
 	header {
+		@apply w-full;
 		overflow: hidden;
 		display: flex;
 		justify-content: space-between;
-		width: 100vw;
+		z-index: 10;
+	}
+
+	#logo-img {
+		max-width: 80px;
 	}
 </style>
