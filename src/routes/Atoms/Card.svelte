@@ -15,8 +15,8 @@
 	// let;
 </script>
 
-<div class="flex justify-center my-3 md:mx-3 bg-white rounded-lg drop-shadow-md max-w-[250px]">
-	<div class="block w-full">
+<div class="card flex justify-center my-3 md:mx-3 bg-white rounded-lg drop-shadow-md max-w-[250px]">
+	<div class="block w-full flex flex-col">
 		<a
 			href="#!"
 			data-te-ripple-init
@@ -26,7 +26,7 @@
 			<img class="rounded-t-lg w-full" src={typeImg} alt="" />
 			<Badge>{type}</Badge>
 		</a>
-		<div class="p-6 md:flex md:flex-col md:flex-1">
+		<div class="p-6 md:flex md:flex-col md:flex-1 md:justify-between">
 			<h5 class="mb-2 text-xl font-medium leading-tight font-perso">
 				{title}
 			</h5>
@@ -40,3 +40,13 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.card {
+		transition: transform 400ms;
+	}
+
+	.card:hover {
+		transform: scale(1.05);
+	}
+</style>

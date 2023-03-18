@@ -112,24 +112,42 @@
 					</span>
 					des formations
 				</p>
-				<div class="some-cards flex-col md:flex-row md:justify-around w-100">
-					<div
-						class="cards-container flex w-100 flex-col md:flex-row md:justify-between md:w-[50%] items-center md:items-stretch"
-					>
-						<Card
-							title="3 avril 2023"
-							description="Nous vous formerons à l'élaboration de vos chorégrahies"
-						/>
-						<Card title="10 juin 2023" type="kids" />
-						<Card title="17 juillet 2023" />
+				<div
+					class="cards-container flex w-100 flex-col md:flex-row md:justify-between  items-center md:items-stretch"
+				>
+					<Card
+						title="3 avril 2023"
+						description="Nous vous formerons à l'élaboration de vos chorégrahies"
+					/>
+					<Card title="10 juin 2023" type="kids" />
+					<Card title="17 juillet 2023" />
+					<div class="md:w-[50%] flex items-center justify-center">
+						<BlueButton>... et plus encore !</BlueButton>
 					</div>
-					<BlueButton>... et plus encore !</BlueButton>
 				</div>
 				<!-- <ProductsOverview /> -->
 			</li>
+
 			<li id="choregraphies">
-				<span>des chorégraphies</span>
-				<div class="some-cards" />
+				<p class="flex items-center">
+					<span class="material-symbols-outlined blue-text max-w-fit mr-4">
+						keyboard_double_arrow_right
+					</span>
+					des volumes de chorégraphies pour vos cours
+				</p>
+				<div
+					class="cards-container flex w-100 flex-col md:flex-row md:justify-between  items-center md:items-stretch"
+				>
+					<Card
+						title="Vol.4"
+						description="Nous vous formerons à l'élaboration de vos chorégrahies"
+					/>
+					<Card title="Vol.3" type="kids" />
+					<Card title="Vol.2" />
+					<div class="md:w-[50%] flex items-center justify-center">
+						<BlueButton>... et plus encore !</BlueButton>
+					</div>
+				</div>
 				<!-- <ProductsOverview /> -->
 			</li>
 		</ul>

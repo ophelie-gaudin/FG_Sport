@@ -36,13 +36,30 @@
 <style>
 	header {
 		@apply w-full;
+		height: 150px;
 		overflow: hidden;
 		display: flex;
 		justify-content: space-between;
 		z-index: 10;
 	}
 
+	.corner {
+		width: 5em;
+		height: 5em;
+	}
+
+	.corner a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+	}
+
 	#logo-img {
-		max-width: 80px;
+		width: 5em;
+		height: 5em;
+		/* max-width: 80px; */
+		object-fit: contain;
 	}
 </style>
