@@ -24,7 +24,7 @@
 <div class="card flex justify-center my-3 md:mx-3 bg-white rounded-lg drop-shadow-md max-w-[250px]">
 	<div class="w-full flex flex-col">
 		<a
-			href="#!"
+			href="/"
 			data-te-ripple-init
 			data-te-ripple-color="light"
 			class="bg-kids-class relative w-full"
