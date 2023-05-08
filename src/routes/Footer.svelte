@@ -1,15 +1,17 @@
 <script>
-	import logo from '$lib/images/fg-logo.png';
+	import logo from '../lib/images/fg_logo.png';
 </script>
 
 <footer class="flex flex-col md:flex-row items-center md:items-start">
-	<div class="md:items-start">
-		<a href="/">
-			<img src={logo} alt="FG sport logo" />
+	<div class="md:items-start ">
+		<a href="/" class="flex justify-center">
+			<img src={logo} alt="FG sport logo" id="logo-img" />
 		</a>
 	</div>
 
-	<div>
+	<div class="flex flex-col md:items-start">
+		<p id="footer-title" class="text-2xl mb-4">FG-Sport</p>
+
 		<ul class="items-center flex-col md:items-start">
 			<li><a class="block" href="/confidentiality">Politique de confidentialité</a></li>
 			<li><a class="block" href="/legals">Mentions légales</a></li>
@@ -33,13 +35,23 @@
 <style>
 	footer {
 		min-height: 20vh;
-		margin: var(--spacing-unit-4);
+		background-color: var(--color-bg-0);
+		width: 100%;
+	}
+
+	#footer-title {
+		font-family: 'Audiowide', cursive;
+
 	}
 
 	ul {
 		display: flex;
 		flex: 1;
 		text-align: center;
+	}
+
+	li {
+		margin-bottom: 8px;
 	}
 
 	footer > div {
@@ -52,4 +64,9 @@
 	p {
 		text-align: center;
 	}
+
+	#logo-img {
+		width: 50%;
+	}
+
 </style>

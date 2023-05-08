@@ -15,6 +15,10 @@
 		</li>
 		<li aria-current={$page.url.pathname === '#services' ? 'page' : undefined}>
 			<a href="/#services">Nos services</a>
+			<div class="sub-nav">
+				<a href="/formations">Nos formations</a>
+				<a href="/choregraphies">Nos chorégraphies</a>
+			</div>
 		</li>
 		<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
 			<a href="/about">Qui sommes-nous ?</a>
@@ -26,29 +30,11 @@
 </nav>
 
 <style>
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
-	}
-
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: rgba(255, 255, 255, 0.9);
+		--background: rgba(245, 245, 245, 0.9);
+
 	}
 
 	svg {
@@ -108,5 +94,25 @@
 
 	a:hover {
 		color: var(--color-theme-1);
+	}
+
+	.sub-nav {
+		@apply rounded-b-md;
+		display: none;
+		position: absolute;
+		background: var(--background);
+		width: 220px;
+		right: -81px;
+	}
+
+	.sub-nav a {
+		padding: 10px 20px;
+		font-size: 0.7rem;
+	}
+
+	li:hover .sub-nav {
+		/* display: flex;
+		flex-direction: column; */
+		display: block;
 	}
 </style>
