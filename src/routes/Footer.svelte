@@ -9,7 +9,8 @@
 		</a>
 	</div>
 
-	<div>
+	<div class="flex flex-col md:items-start">
+		<p id="footer-title" class="text-2xl mb-4">FG-Sport</p>
 		<ul class="items-center flex-col md:items-start">
 			<li><a class="block" href="/confidentiality">Politique de confidentialité</a></li>
 			<li><a class="block" href="/legals">Mentions légales</a></li>
@@ -37,10 +38,18 @@
 		width: 100%;
 	}
 
+	#footer-title {
+		font-family: 'Audiowide', cursive;
+	}
+
 	ul {
 		display: flex;
 		flex: 1;
 		text-align: center;
+	}
+
+	li {
+		margin-bottom: 8px;
 	}
 
 	footer > div {

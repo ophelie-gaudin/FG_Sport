@@ -4,6 +4,12 @@
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
 	import BlueButton from './Atoms/BlueButton.svelte';
 	import Card from './Atoms/Card.svelte';
+	import { supabase } from '$lib/supabaseClient.js';
+
+	export let data;
+	let { sections } = data;
+	console.log(sections);
+	console.log('🚀 ~ file: +page.svelte:12 ~ sections:', sections);
 </script>
 
 <svelte:head>
@@ -18,17 +24,14 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v16.0&appId=718921286580231&autoLogAppEvents=1" nonce="0WYcTawP"></script>`}
 
 <section id="hero-section">
-	<div class="section-content justify-between">
+	<div class="section-content justify-between z-10">
 		<div class="slogan">
-			<span class="bold-slogan"
-				>Venez vous défouler et jumper avec nous <br /> sur des rythmes de folie !</span
-			>
+			<span class="bold-slogan">{sections[0].titre}</span>
 			<p class="light-title">
-				Chez FG Sport, nous proposons des cours de jumping pour les pratiquants <br /> mais aussi des
-				évènements de formation pour les instructeurs.
+				{sections[0].sous_titre}
 			</p>
 		</div>
-		<a class="more-div" href="#jumping-description"
+		<a class="more-div font-bold" href="#jumping-description"
 			>En savoir plus
 			<span class="material-symbols-outlined"> keyboard_double_arrow_down </span>
 		</a>
@@ -38,31 +41,18 @@
 <section id="jumping-description">
 	<div class="section-content justify-center">
 		<p class="md:mb-20 md:mt-0 mt-4 text-lg text-center">
-			Vous souhaitez faire du sport pour vous dépenser tout en vous amusant ? <br />
-			Vous cherchez un sport à pratiquer pour perdre du poids dans un contexte fun ? <br />
-			Le jumping fitness est fait pour vous !
+			{sections[1].sous_titre}
 		</p>
 
 		<div class="dual-div">
 			<div class="left-side">
-				<h3 class="blue-text">Qu'est-ce que le jumping ?</h3>
+				<h3 class="blue-text">{sections[1].titre}</h3>
 				<p>
-					Les cours se déroulent sur de petits trampolines individuels sur fond de musique très
-					rythmée. Accompagné par un coach sportif, vous alternez sauts rapides et lents, sprints
-					dynamiques et exercices de renforcement musculaire. Les exercices de fitness que l’on
-					retrouve le plus souvent lors d’un cours de jump fitness sont les jumping jack ou encore
-					les montées de genoux qui sont très efficaces pour accélérer le rythme cardiaque. <br />
-					<br />
-
-					Grâce à la variété des combinaisons d’exercices possibles et à la bonne ambiance lors de
-					ces cours collectifs, vous ne verrez pas le temps passer et vous ferez du sport en vous
-					amusant réellement ! <br /> <br />
-
-					Chez FG Sports, nous vous proposons des cours collectifs mais aussi
+					{sections[1].description}
 				</p>
 			</div>
 			<div class="right-side">
-				<div class="image" />
+				<div class="image" id="jumping-img" />
 			</div>
 		</div>
 	</div>
@@ -70,7 +60,7 @@
 
 <section class="dual-section blue-section" id="facebook-feed">
 	<div class="section-content justify-center">
-		<h3 class="text-center pb-4">Retrouvez nos actualités sur nos réseaux sociaux...</h3>
+		<h3 class="text-center pb-4">{sections[2].titre}</h3>
 
 		<div
 			class="fb-page"
@@ -102,7 +92,7 @@
 
 <section id="services">
 	<div class="section-content">
-		<h3 class="blue-text text-center">FG Sport, c'est aussi :</h3>
+		<h3 class="blue-text text-center">{sections[3].titre}</h3>
 
 		<ul>
 			<li id="trainings">
@@ -154,10 +144,86 @@
 	</div>
 </section>
 
+<section class="dual-section blue-section" id="who">
+	<div class="section-content justify-center w-full">
+		<h3 class="text-center pb-4">{sections[4].titre}</h3>
+
+		<div class="dual-div my-8">
+			<div class="left-side">
+				<h4 class="white">{sections[4].sous_titre}</h4>
+				<p>
+					{sections[4].description}
+				</p>
+			</div>
+			<div class="right-side flex md:justify-end justify-center">
+				<div class="image profile" id="fiona-img" />
+			</div>
+		</div>
+		<hr />
+
+		<div class="dual-div flex-col md:flex-row my-8">
+			<div class="left-side flex justify-center md:justify-start">
+				<div class="image profile" id="ghislain-img" />
+			</div>
+			<div class="right-side">
+				<h4 class="white">{sections[4].sous_titre_bis}</h4>
+				<p>
+					{sections[4].description_bis}
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="contact">
+	<div class="section-content w-full">
+		<h3 class="blue-text text-center">Nous contacter</h3>
+		<div class="dual-div w-full flex-col md:flex-row">
+			<div class="left-side flex flex-col">
+				<input type="text" placeholder="Votre email" class="w-full" />
+				<input type="text" placeholder="Votre numéro de téléphone" class="w-full" />
+				<select name="object" id="object-select" class="w-full">
+					<option value="" disabled selected>Sélectionnez un objet</option>
+					<option value="formations">Informations sur les formations</option>
+					<option value="choregraphies">Informations sur les chorégrahies</option>
+					<option value="other">Autre</option>
+				</select>
+			</div>
+			<div class="right-side">
+				<textarea
+					name="message"
+					id="message-textarea"
+					cols="30"
+					rows="10"
+					placeholder="Votre messsage"
+					class="w-full"
+				/>
+			</div>
+		</div>
+	</div>
+</section>
+
 <style>
 	/* HERO SECTION */
 	#hero-section {
-		background-color: #ccc;
+		background: url('https://zupimages.net/up/23/16/zk50.jpg') no-repeat;
+		background-size: cover;
+		position: relative;
+		color: white;
+	}
+
+	#hero-section a {
+		color: white;
+	}
+
+	#hero-section::before {
+		content: '';
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		background-color: rgba(0, 0, 0, 0.6);
+		z-index: 0;
 	}
 
 	.slogan {
@@ -189,6 +255,22 @@
 		margin-top: 2rem;
 	}
 
+	input,
+	select {
+		@apply rounded-lg my-2 pl-4;
+		height: 40px;
+		background-color: white;
+	}
+
+	textarea {
+		@apply rounded-lg my-2 p-4;
+	}
+
+	#jumping-img {
+		background: url('https://zupimages.net/up/23/16/plm8.png') no-repeat;
+		background-size: cover;
+	}
+
 	/* PRODUCT SECTION */
 	#services h3 {
 		font-size: 2rem !important;
@@ -204,5 +286,29 @@
 
 	#services li > div {
 		@apply flex justify-around;
+	}
+
+	h4 {
+		font-family: var(--font-perso);
+	}
+
+	.profile {
+		width: 300px;
+		margin: 0;
+		margin-bottom: 1rem;
+	}
+
+	#fiona-img {
+		background: url('https://zupimages.net/up/23/16/fir2.jpg') no-repeat;
+		background-size: cover;
+	}
+
+	#ghislain-img {
+		background: url('https://zupimages.net/up/23/16/hmeg.jpg') no-repeat;
+		background-size: cover;
+	}
+
+	#contact {
+		min-height: 50vh;
 	}
 </style>

@@ -11,7 +11,7 @@
 	--color-bg-0: whitesmoke;
 	--color-bg-1: hsl(209, 36%, 86%);
 	--color-bg-2: hsl(224, 44%, 95%);
-	--color-theme-1: #4d679f;
+	--color-theme-1: #6282c8;
 	--color-theme-2: #4075a6;
 	--color-image: #ccc;
 	--color-text: rgba(0, 0, 0, 0.7);
@@ -217,12 +217,11 @@ section > div.section-content {
 	flex: 1;
 }
 .image {
-	margin: 3rem auto;
+	margin: auto;
 	background-color: #ccc;
 	min-height: 200px;
 	min-width: 200px;
-	/* margin: 3em; */
-	height: 80%;
+	height: 100%;
 }
 
 #jumping-description {

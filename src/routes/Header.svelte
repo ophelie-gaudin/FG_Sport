@@ -23,10 +23,10 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 
-<header class="fixed bg-white md:bg-white/0">
+<header class="fixed bg-white md:bg-white/0  md:h-[150px]">
 	<div class="corner">
 		<a href="/">
-			<img id="logo-img" src={logo} alt="FG sport logo" />
+			<img id="logo-img" class="ml-12 mt-4" src={logo} alt="FG sport logo" />
 		</a>
 	</div>
 	<Navbar />
@@ -36,7 +36,6 @@
 <style>
 	header {
 		@apply w-full;
-		height: 150px;
 		overflow: hidden;
 		display: flex;
 		justify-content: space-between;
