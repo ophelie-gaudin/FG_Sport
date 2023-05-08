@@ -11,6 +11,7 @@
 
 	<div class="flex flex-col md:items-start">
 		<p id="footer-title" class="text-2xl mb-4">FG-Sport</p>
+
 		<ul class="items-center flex-col md:items-start">
 			<li><a class="block" href="/confidentiality">Politique de confidentialité</a></li>
 			<li><a class="block" href="/legals">Mentions légales</a></li>
@@ -40,6 +41,7 @@
 
 	#footer-title {
 		font-family: 'Audiowide', cursive;
+
 	}
 
 	ul {
@@ -66,4 +68,5 @@
 	#logo-img {
 		width: 50%;
 	}
+
 </style>

@@ -34,6 +34,7 @@
 		display: flex;
 		justify-content: center;
 		--background: rgba(245, 245, 245, 0.9);
+
 	}
 
 	svg {
