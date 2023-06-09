@@ -20,11 +20,11 @@
 				<a href="/choregraphies">Nos chorégraphies</a>
 			</div>
 		</li>
-		<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-			<a href="/about">Qui sommes-nous ?</a>
+		<li aria-current={$page.url.pathname === '#about' ? 'page' : undefined}>
+			<a href="/#about">Qui sommes-nous ?</a>
 		</li>
-		<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-			<a href="/sverdle">Nous contacter</a>
+		<li aria-current={$page.url.pathname === '#contact-us' ? 'page' : undefined}>
+			<a href="#contact-us">Nous contacter</a>
 		</li>
 	</ul>
 </nav>
@@ -34,7 +34,6 @@
 		display: flex;
 		justify-content: center;
 		--background: rgba(245, 245, 245, 0.9);
-
 	}
 
 	svg {

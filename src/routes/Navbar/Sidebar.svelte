@@ -20,8 +20,8 @@
 					</div>
 				</span>
 			</li>
-			<li><a class="block" href="/about">Qui sommes-nous ?</a></li>
-			<li><a class="block" href="/sverdle">Nous contacter</a></li>
+			<li><a class="block" href="/#about">Qui sommes-nous ?</a></li>
+			<li><a class="block" href="#contact-us">Nous contacter</a></li>
 		</ul>
 	</nav>
 </aside>

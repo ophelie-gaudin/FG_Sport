@@ -25,9 +25,9 @@
 	};
 </script>
 
-<section id="contact">
-	<div class="section-content w-full">
-		<h3 class="blue-text text-center">Nous contacter</h3>
+<div id="contact-us">
+	<div class="section-content w-[80vw]">
+		<h3 class="blue-text text-center my-8">Nous contacter</h3>
 		<form
 			on:submit|preventDefault={createContact}
 			name="contact"
@@ -65,11 +65,15 @@
 			</div>
 		</form>
 	</div>
-</section>
+</div>
 
 <style>
-	#contact {
-		min-height: 50vh;
+	#contact-us {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--color-bg-0);
 	}
 
 	input,
