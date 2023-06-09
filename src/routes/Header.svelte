@@ -39,7 +39,7 @@
 		overflow: hidden;
 		display: flex;
 		justify-content: space-between;
-		z-index: 10;
+		z-index: 20 !important;
 	}
 
 	.corner {

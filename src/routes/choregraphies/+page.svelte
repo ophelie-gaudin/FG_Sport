@@ -1,12 +1,10 @@
-<script>
-	// import Card from '../Atoms/Card.svelte';
+<script lang="ts">
+	import Card from '../Atoms/Card.svelte';
 
-	// const data = {
-	// 	choregraphies: {
-	// 		1: { title: 'Blabla', lieu: 'Toulouse', type: 'BASIC' },
-	// 		2: { title: 'Blabla', lieu: 'Toulouse', type: 'BASIC' }
-	// 	}
-	// };
+	export let data;
+	let { section, choregraphies } = data;
+
+	console.log('🚀 ~ file: +page.svelte:12 ~ choregraphies:', choregraphies);
 </script>
 
 <svelte:head>
@@ -18,28 +16,35 @@
 
 <section class="blue-section" id="choregraphies-header">
 	<div class="section-content justify-center">
-		<h3 class="pb-4">Nos choregraphies</h3>
+		<h3 class="pb-4">{@html section[0].titre}</h3>
 
-		<div class="text-lg" />
+		<div class="text-lg">
+			{@html section[0].description}
+		</div>
 	</div>
 </section>
 
 <section>
 	<div class="section-content">
-		<div class="flex filter-div items-center">
-			<p>Filtrer par:</p>
-			<div>
+		<!-- <div class="flex filter-div flex-col items-center md:flex-row md:items-center ">
+			<p class="whitespace-nowrap">Filtrer par:</p>
+			<div class="flex flex-wrap justify-between">
 				<button class="filter-btn">Toutes</button>
 				<button class="filter-btn">Ce mois-ci</button>
 				<button class="filter-btn">#BASIC</button>
 				<button class="filter-btn">#KIDS</button>
 			</div>
-
-			<div class="choregraphies-catalog">
-				<!-- {#each data.choregraphies as formation}
-					<Card title={formation.date} lieu={formation.lieu} type={formation.type} />
-				{/each} -->
-			</div>
+		</div> -->
+		<div
+			class="flex flex-col items-center flex-wrap md:flex-row md:max-w-[60vw] md:justify-between"
+		>
+			{#each choregraphies as choregraphie}
+				<Card
+					title="VOL.{choregraphie.id}"
+					type={choregraphie.type}
+					href="/choregraphies/{choregraphie.id}"
+				/>
+			{/each}
 		</div>
 	</div>
 </section>
@@ -49,8 +54,14 @@
 		min-height: 40vh;
 	}
 
+	.section-content {
+		max-width: 80vw;
+		display: flex;
+		align-items: center;
+	}
+
 	.filter-btn {
-		margin-left: 4rem;
+		margin: 0 2rem 0 2rem;
 		border: 1px solid;
 		padding: 8px;
 		border-radius: 4px;
