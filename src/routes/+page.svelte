@@ -143,7 +143,7 @@
 	</div>
 </section>
 
-<section class="dual-section blue-section" id="who">
+<section class="dual-section blue-section" id="about">
 	<div class="section-content justify-center w-full lg:max-w-[60vw]">
 		<h3 class="text-center pb-4">{@html sections[4].titre}</h3>
 
