@@ -1,12 +1,10 @@
-<script>
-	// import Card from '../Atoms/Card.svelte';
+<script lang="ts">
+	import Card from '../Atoms/Card.svelte';
 
-	// const data = {
-	// 	formations: {
-	// 		1: { title: 'Blabla', lieu: 'Toulouse', type: 'BASIC' },
-	// 		2: { title: 'Blabla', lieu: 'Toulouse', type: 'BASIC' }
-	// 	}
-	// };
+	export let data;
+	let { section, formations } = data;
+
+	console.log('🚀 ~ file: +page.svelte:12 ~ formations:', formations);
 </script>
 
 <svelte:head>
@@ -18,56 +16,36 @@
 
 <section class="blue-section" id="formations-header">
 	<div class="section-content justify-center">
-		<h3 class="pb-4">Nos formations</h3>
+		<h3 class="pb-4">{@html section[0].titre}</h3>
 
 		<div class="text-lg">
-			<p>
-				Nous proposons deux tyoes de formations adressées à toute personne souhaitant devenir
-				instructeurs en jumping:
-				<br />
-				<br />
-			</p>
-			<ul class="pl-8 list-disc">
-				<li>
-					des formations BASIC: axées sur les cours pour tout public. (description de ce que sont
-					les formations basiques)
-				</li>
-				<li>
-					des formations KIDS: axées sur les cours pour enfants (description de ce qui est travaillé
-					en particulier pur que les formations soient particulièrement adaptées aux enfants =
-					simplicité des mouvements ? ...)
-				</li>
-			</ul>
-			<p>
-				<br />
-				<br />
-
-				Vous pourrez visionner ci-dessous les différents évènements de formation que nous proposons.
-				<br />
-				/!\ Si vous etes intéréssés par une ou plusieurs formations, merci de nous envoyer un message
-				via un formulaire de contact avec l'objet "Demande d'informations sur les formations" et en spécifiant
-				les sessions qui vous intéressent.
-			</p>
+			{@html section[0].description}
 		</div>
 	</div>
 </section>
 
 <section>
 	<div class="section-content">
-		<div class="flex filter-div items-center">
-			<p>Filtrer par:</p>
-			<div>
+		<!-- <div class="flex filter-div flex-col items-center md:flex-row md:items-center ">
+			<p class="whitespace-nowrap">Filtrer par:</p>
+			<div class="flex flex-wrap justify-between">
 				<button class="filter-btn">Toutes</button>
 				<button class="filter-btn">Ce mois-ci</button>
 				<button class="filter-btn">#BASIC</button>
 				<button class="filter-btn">#KIDS</button>
 			</div>
-
-			<div class="formations-catalog">
-				<!-- {#each data.formations as formation}
-					<Card title={formation.date} lieu={formation.lieu} type={formation.type} />
-				{/each} -->
-			</div>
+		</div> -->
+		<div
+			class="flex flex-col items-center flex-wrap md:flex-row md:max-w-[60vw] md:justify-between"
+		>
+			{#each formations as formation}
+				<Card
+					title={new Date(formation.date).toLocaleDateString('fr')}
+					lieu={formation.lieu}
+					type={formation.type.toLowerCase()}
+					href="/formations/{formation.id}"
+				/>
+			{/each}
 		</div>
 	</div>
 </section>
@@ -77,8 +55,14 @@
 		min-height: 40vh;
 	}
 
+	.section-content {
+		max-width: 80vw;
+		display: flex;
+		align-items: center;
+	}
+
 	.filter-btn {
-		margin-left: 4rem;
+		margin: 0 2rem 0 2rem;
 		border: 1px solid;
 		padding: 8px;
 		border-radius: 4px;

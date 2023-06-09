@@ -1,15 +1,11 @@
-<script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+<script lang="ts">
 	import BlueButton from './Atoms/BlueButton.svelte';
 	import Card from './Atoms/Card.svelte';
-	import { supabase } from '$lib/supabaseClient.js';
 
 	export let data;
-	let { sections } = data;
-	console.log(sections);
-	console.log('🚀 ~ file: +page.svelte:12 ~ sections:', sections);
+	let { sections, formations, volumes } = data;
+	console.log('🚀 FORMATIONS: ', formations);
+	console.log('🚀 VOLUMES: ', volumes);
 </script>
 
 <svelte:head>
@@ -21,14 +17,14 @@
 </svelte:head>
 
 {@html `<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v16.0&appId=718921286580231&autoLogAppEvents=1" nonce="0WYcTawP"></script>`}
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v17.0" nonce="hglDoksC"></script>`}
 
 <section id="hero-section">
 	<div class="section-content justify-between z-10">
 		<div class="slogan">
-			<span class="bold-slogan">{sections[0].titre}</span>
+			<span class="bold-slogan">{@html sections[0].titre}</span>
 			<p class="light-title">
-				{sections[0].sous_titre}
+				{@html sections[0].sous_titre}
 			</p>
 		</div>
 		<a class="more-div font-bold" href="#jumping-description"
@@ -40,15 +36,15 @@
 
 <section id="jumping-description">
 	<div class="section-content justify-center">
-		<p class="md:mb-20 md:mt-0 mt-4 text-lg text-center">
-			{sections[1].sous_titre}
+		<p class="md:mb-20 md:mt-0 mt-4 text-lg text-center italic">
+			{@html sections[1].sous_titre}
 		</p>
 
 		<div class="dual-div">
 			<div class="left-side">
-				<h3 class="blue-text">{sections[1].titre}</h3>
+				<h3 class="blue-text">{@html sections[1].titre}</h3>
 				<p>
-					{sections[1].description}
+					{@html sections[1].description}
 				</p>
 			</div>
 			<div class="right-side">
@@ -60,11 +56,11 @@
 
 <section class="dual-section blue-section" id="facebook-feed">
 	<div class="section-content justify-center">
-		<h3 class="text-center pb-4">{sections[2].titre}</h3>
+		<h3 class="text-center pb-4">{@html sections[2].titre}</h3>
 
 		<div
 			class="fb-page"
-			data-href="https://www.facebook.com/profile.php?id=100083668385890"
+			data-href="https://www.facebook.com/profile.php?id=100064013235325"
 			data-tabs="timeline"
 			data-width="750"
 			data-small-header="false"
@@ -73,15 +69,15 @@
 			data-show-facepile="true"
 		>
 			<blockquote
-				cite="https://www.facebook.com/profile.php?id=100083668385890"
+				cite="https://www.facebook.com/profile.php?id=100064013235325"
 				class="fb-xfbml-parse-ignore"
 			>
-				<!-- <a href="https://www.facebook.com/profile.php?id=100083668385890">Miss Vagabonde</a> -->
+				<!-- <a href="https://www.facebook.com/profile.php?id=100064013235325">Miss Vagabonde</a> -->
 			</blockquote>
 		</div>
 		<div
 			class="fb-page flex justify-center"
-			data-href="https://www.facebook.com/profile.php?id=100083668385890"
+			data-href="https://www.facebook.com/profile.php?id=100064013235325"
 			data-tabs="timeline,events,messages"
 			data-width="750"
 			data-hide-cover="false"
@@ -92,7 +88,7 @@
 
 <section id="services">
 	<div class="section-content">
-		<h3 class="blue-text text-center">{sections[3].titre}</h3>
+		<h3 class="blue-text text-center">{@html sections[3].titre}</h3>
 
 		<ul>
 			<li id="trainings">
@@ -105,17 +101,19 @@
 				<div
 					class="cards-container flex w-100 flex-col md:flex-row md:justify-between  items-center md:items-stretch"
 				>
-					<Card
-						title="3 avril 2023"
-						description="Nous vous formerons à l'élaboration de vos chorégrahies"
-					/>
-					<Card title="10 juin 2023" type="kids" />
-					<Card title="17 juillet 2023" />
+					{#each formations as formation}
+						<Card
+							title={new Date(formation.date).toLocaleDateString('fr')}
+							lieu={formation.lieu}
+							type={formation.type.toLowerCase()}
+							href={`/formations/${formation.id}`}
+						/>
+					{/each}
+
 					<div class="md:w-[50%] flex items-center justify-center">
-						<BlueButton>... et plus encore !</BlueButton>
+						<BlueButton href="/formations">... et plus encore !</BlueButton>
 					</div>
 				</div>
-				<!-- <ProductsOverview /> -->
 			</li>
 
 			<li id="choregraphies">
@@ -128,75 +126,50 @@
 				<div
 					class="cards-container flex w-100 flex-col md:flex-row md:justify-between  items-center md:items-stretch"
 				>
-					<Card
-						title="Vol.4"
-						description="Nous vous formerons à l'élaboration de vos chorégrahies"
-					/>
-					<Card title="Vol.3" type="kids" />
-					<Card title="Vol.2" />
+					{#each volumes as volume}
+						<Card
+							title="Vol.{volume.id}"
+							description={volume.description}
+							href="/choregraphies/{volume.id}"
+						/>
+					{/each}
+
 					<div class="md:w-[50%] flex items-center justify-center">
-						<BlueButton>... et plus encore !</BlueButton>
+						<BlueButton href="/choregraphies">... et plus encore !</BlueButton>
 					</div>
 				</div>
-				<!-- <ProductsOverview /> -->
 			</li>
 		</ul>
 	</div>
 </section>
 
 <section class="dual-section blue-section" id="who">
-	<div class="section-content justify-center w-full">
-		<h3 class="text-center pb-4">{sections[4].titre}</h3>
+	<div class="section-content justify-center w-full lg:max-w-[60vw]">
+		<h3 class="text-center pb-4">{@html sections[4].titre}</h3>
 
-		<div class="dual-div my-8">
-			<div class="left-side">
-				<h4 class="white">{sections[4].sous_titre}</h4>
-				<p>
-					{sections[4].description}
-				</p>
+		<div class="flex flex-col md:flex-row items-center">
+			<div class=" my-8">
+				<div class=" flex left-side justify-center">
+					<div class="image profile" id="fiona-img" />
+				</div>
+				<div class="left-side">
+					<h4 class="white">{@html sections[4].sous_titre}</h4>
+					<p>
+						{@html sections[4].description}
+					</p>
+				</div>
 			</div>
-			<div class="right-side flex md:justify-end justify-center">
-				<div class="image profile" id="fiona-img" />
-			</div>
-		</div>
-		<hr />
 
-		<div class="dual-div flex-col md:flex-row my-8">
-			<div class="left-side flex justify-center md:justify-start">
-				<div class="image profile" id="ghislain-img" />
-			</div>
-			<div class="right-side">
-				<h4 class="white">{sections[4].sous_titre_bis}</h4>
-				<p>
-					{sections[4].description_bis}
-				</p>
-			</div>
-		</div>
-	</div>
-</section>
-<section id="contact">
-	<div class="section-content w-full">
-		<h3 class="blue-text text-center">Nous contacter</h3>
-		<div class="dual-div w-full flex-col md:flex-row">
-			<div class="left-side flex flex-col">
-				<input type="text" placeholder="Votre email" class="w-full" />
-				<input type="text" placeholder="Votre numéro de téléphone" class="w-full" />
-				<select name="object" id="object-select" class="w-full">
-					<option value="" disabled selected>Sélectionnez un objet</option>
-					<option value="formations">Informations sur les formations</option>
-					<option value="choregraphies">Informations sur les chorégrahies</option>
-					<option value="other">Autre</option>
-				</select>
-			</div>
-			<div class="right-side">
-				<textarea
-					name="message"
-					id="message-textarea"
-					cols="30"
-					rows="10"
-					placeholder="Votre messsage"
-					class="w-full"
-				/>
+			<div class=" flex-col md:flex-row my-8">
+				<div class="right-side flex justify-center">
+					<div class="image profile" id="ghislain-img" />
+				</div>
+				<div class="right-side">
+					<h4 class="white">{@html sections[4].sous_titre_bis}</h4>
+					<p>
+						{@html sections[4].description_bis}
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -255,20 +228,10 @@
 		margin-top: 2rem;
 	}
 
-	input,
-	select {
-		@apply rounded-lg my-2 pl-4;
-		height: 40px;
-		background-color: white;
-	}
-
-	textarea {
-		@apply rounded-lg my-2 p-4;
-	}
-
 	#jumping-img {
 		background: url('https://zupimages.net/up/23/16/plm8.png') no-repeat;
 		background-size: cover;
+		min-height: 40vh;
 	}
 
 	/* PRODUCT SECTION */
@@ -294,6 +257,7 @@
 
 	.profile {
 		width: 300px;
+		height: 400px;
 		margin: 0;
 		margin-bottom: 1rem;
 	}
@@ -306,9 +270,5 @@
 	#ghislain-img {
 		background: url('https://zupimages.net/up/23/16/hmeg.jpg') no-repeat;
 		background-size: cover;
-	}
-
-	#contact {
-		min-height: 50vh;
 	}
 </style>

@@ -83,9 +83,9 @@
 		transition: transform 0.2s;
 	}
 
-	input:checked ~ .arrow {
+	/* input:checked ~ .arrow {
 		transform: rotateZ(90deg);
-	}
+	} */
 
 	.sub-nav a {
 		padding: 10px;

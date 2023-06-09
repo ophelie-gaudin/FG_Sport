@@ -207,6 +207,7 @@ section > div.section-content {
 	@apply flex-col-reverse md:flex-row;
 	display: flex;
 }
+
 .left-side {
 	@apply md:mr-8;
 	flex: 1;

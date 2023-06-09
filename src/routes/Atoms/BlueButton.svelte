@@ -1,6 +1,10 @@
-<button class="button">
+<script lang="ts">
+	export let href: string;
+</script>
+
+<a class="button" {href}>
 	<span><slot /></span>
-</button>
+</a>
 
 <style>
 	.button {
