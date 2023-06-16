@@ -14,7 +14,7 @@
 						<span class="material-symbols-outlined arrow"> keyboard_double_arrow_right </span>
 						<input type="checkbox" />
 					</div>
-					<div class="sub-nav">
+					<div class="sub-nav w-0">
 						<a href="/formations">Nos formations</a>
 						<a href="/choregraphies">Nos chorégraphies </a>
 					</div>
@@ -45,6 +45,7 @@
 	li {
 		display: flex;
 		justify-content: space-between;
+		margin: 1rem 0 1rem 0;
 	}
 
 	input {

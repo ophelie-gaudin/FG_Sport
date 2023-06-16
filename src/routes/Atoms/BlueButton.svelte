@@ -52,13 +52,4 @@
 		opacity: 1;
 		right: 0;
 	}
-
-	/* button {
-		@apply text-white font-bold py-2 px-4 rounded;
-		background-color: var(--color-theme-1);
-	}
-
-	button:hover {
-		background-color: var(--color-theme-1-dark);
-	} */
 </style>

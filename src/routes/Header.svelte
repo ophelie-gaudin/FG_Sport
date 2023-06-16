@@ -26,7 +26,7 @@
 <header class="fixed bg-white md:bg-white/0  md:h-[150px]">
 	<div class="corner">
 		<a href="/">
-			<img id="logo-img" class="ml-12 mt-4" src={logo} alt="FG sport logo" />
+			<img id="logo-img" class="ml-12 md:mt-4" src={logo} alt="FG sport logo" />
 		</a>
 	</div>
 	<Navbar />
@@ -45,6 +45,8 @@
 	.corner {
 		width: 5em;
 		height: 5em;
+		display: flex;
+		align-items: center;
 	}
 
 	.corner a {
@@ -56,8 +58,8 @@
 	}
 
 	#logo-img {
-		width: 5em;
-		height: 5em;
+		width: 4em;
+		height: 4em;
 		/* max-width: 80px; */
 		object-fit: contain;
 	}
