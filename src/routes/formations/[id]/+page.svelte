@@ -1,67 +1,93 @@
 <script>
-	// import Card from '../Atoms/Card.svelte';
-
-	// const data = {
-	// 	choregraphies: {
-	// 		1: { title: 'Blabla', lieu: 'Toulouse', type: 'BASIC' },
-	// 		2: { title: 'Blabla', lieu: 'Toulouse', type: 'BASIC' }
-	// 	}
-	// };
-
 	export let data;
-	let { formation } = data;
-	console.log('🚀 ~ file: +page.svelte:12 ~ formation:', formation);
+	let { id, date_publication, description, date, lieu, image, type } = data.formation;
+	console.log('🚀 ~ file: +page.svelte:12 ~ formation:', data);
+
+	const day = new Date(date).toLocaleDateString('fr', {
+		weekday: 'long',
+		day: 'numeric',
+		month: 'long',
+		year: 'numeric'
+	});
+
+	const hours = new Date(date).getHours();
+	const minutes = new Date(date).getMinutes();
+
+	type = type?.toLowerCase() || 'basic';
+
+	image =
+		type === 'kids'
+			? 'https://zupimages.net/up/23/16/kh5j.png'
+			: 'https://zupimages.net/up/23/16/3tnv.png';
+
+	const time = `${hours}:${minutes < 10 ? `0${minutes}` : minutes}`;
 </script>
 
 <svelte:head>
+	<title>FG Sport ~ Formation du {day}</title>
+	<meta
+		name="description"
+		content="FG Sport vous propose des formations et contenus en tant que formateur en Jumping fitness."
+	/>
 	<link
 		rel="stylesheet"
 		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
 	/>
 </svelte:head>
 
-<section class="blue-section" id="choregraphies-header">
-	<h1>HELLO formations !</h1>
-	<!-- <div class="section-content justify-center">
-		<h3 class="pb-4">{section[0].titre}</h3>
+<section class="blue-section  py-4 md:py-20 px-12" id="formation-header">
+	<div class="flex items-center py-4 z-20 w-full">
+		<span class="material-symbols-outlined mr-4 no-underline light-link"> arrow_back </span>
+		<a href="/formations" class="light-link">Retour aux formations</a>
+	</div>
 
-		<div class="text-lg">{section[0].description}</div>
+	<div
+		class="flex flex-col items-center w-full md:flex-row md:max-w-screen-sm md:justify-around py-8 flex-wrap"
+	>
+		{#if image}
+			<div class=" mx-8">
+				<img src={image} alt="volume-img" />
+			</div>
+		{/if}
+
+		<div class=" mx-8">
+			<h3 class="pb-4 whitespace-nowrap">
+				Formation du {day}
+				<div
+					class="rounded-full px-4 text-sm mr-1 bg-gradient-to-r from-gray-300/70 text-white p-2 leading-none font-perso"
+				>
+					{type.toUpperCase()}
+				</div>
+			</h3>
+
+			<br />
+			<p class="text-lg">
+				<b>Heure :</b>
+				{time}
+			</p>
+			<br />
+			<p class="text-lg">
+				<b>Lieu :</b>
+				{lieu}
+			</p>
+			<br />
+			<p class="text-lg"><b>Description:</b> <br /> {description}</p>
+			<br />
+			<a class="text-lg" href="#contact-us">Vous êtes intéressé(e)? <b>Contactez-nous !</b></a>
+		</div>
 	</div>
 </section>
 
-<section>
-	<div class="section-content">
-		<div class="flex filter-div items-center">
-			<p>Filtrer par:</p>
-			<div>
-				<button class="filter-btn">Toutes</button>
-				<button class="filter-btn">Ce mois-ci</button>
-				<button class="filter-btn">#BASIC</button>
-				<button class="filter-btn">#KIDS</button>
-			</div>
-
-			<div class="choregraphies-catalog">
-				{#each data.choregraphies as formation}
-					<Card title={formation.date} lieu={formation.lieu} type={formation.type} />
-				{/each} 
-			</div>
-		</div>
-	</div> -->
-</section>
-
 <style>
-	#choregraphies-header {
+	#formation-header {
 		min-height: 40vh;
 	}
 
-	.filter-btn {
-		margin-left: 4rem;
-		border: 1px solid;
-		padding: 8px;
-		border-radius: 4px;
+	a {
+		color: white;
 	}
 
-	.filter-div {
-		width: 100%;
+	.light-link {
+		color: rgb(190, 215, 255);
 	}
 </style>

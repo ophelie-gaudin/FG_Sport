@@ -8,17 +8,21 @@
 
 	const createContact = async () => {
 		try {
-			const { data } = await supabase
+			await supabase
 				.from('contacts')
 				.insert([{ email, sujet: subject, telephone: phone, message }]);
-			console.log('DATA', data);
+			// .then((response) => {
+			// 	if (response.status === 201) {
+			// 		const submitInput = document.querySelector('[type = submit]');
 
-			let apiResult;
-			if (data != null) {
-				apiResult = true;
-			} else {
-				apiResult = false;
-			}
+			// 		console.log(submitInput);
+
+			// 		// submitInput?.textContent = 'Message envoyé';
+
+			// 		// submitInput?.classList.remove('bg-[var(--color-theme-1)] cursor-pointer');
+			// 		// submitInput?.classList.add('bg-green');
+			// 	}
+			// });
 		} catch (err) {
 			return err;
 		}
@@ -61,7 +65,11 @@
 					class="w-full"
 				/>
 
-				<input type="submit" value="Envoyer votre message !" />
+				<input
+					type="submit"
+					value="Envoyer votre message !"
+					class="px-4 bg-[var(--color-theme-1)] text-white cursor-pointer"
+				/>
 			</div>
 		</form>
 	</div>

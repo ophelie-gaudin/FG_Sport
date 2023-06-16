@@ -8,11 +8,6 @@ export async function load() {
 		.select('*')
 		.order('date_publication', { ascending: false });
 
-	// const { data: volumes } = await supabase
-	// .from('volumes')
-	// .select('*')
-	// .order('date_publication', { ascending: false })
-
 	return {
 		section: section ?? [],
 		choregraphies: choregraphies ?? []

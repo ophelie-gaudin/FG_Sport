@@ -6,7 +6,7 @@ export async function load() {
 	const { data: formations } = await supabase
 		.from('formations')
 		.select('*')
-		.order('date', { ascending: true });
+		.order('date_publication', { ascending: true });
 
 	return {
 		section: section ?? [],
