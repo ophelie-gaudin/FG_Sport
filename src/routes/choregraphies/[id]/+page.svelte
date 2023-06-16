@@ -17,7 +17,7 @@
 </svelte:head>
 
 <section class="blue-section py-4 md:py-20 px-12" id="choregraphie-header">
-	<div class="flex items-center py-4 w-full z-20 ">
+	<div class="flex items-center py-4 w-full">
 		<span class="material-symbols-outlined mr-4 no-underline light-link"> arrow_back </span>
 		<a href="/choregraphies" class="light-link">Retour aux chorégraphies</a>
 	</div>

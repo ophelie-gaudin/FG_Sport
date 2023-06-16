@@ -35,23 +35,21 @@
 	/>
 </svelte:head>
 
-<section class="blue-section  py-4 md:py-20 px-12" id="formation-header">
-	<div class="flex items-center py-4 z-20 w-full">
+<section class="blue-section  py-4 md:py-20 px-10" id="formation-header">
+	<div class="flex items-center py-4 w-full">
 		<span class="material-symbols-outlined mr-4 no-underline light-link"> arrow_back </span>
 		<a href="/formations" class="light-link">Retour aux formations</a>
 	</div>
 
-	<div
-		class="flex flex-col items-center w-full md:flex-row md:max-w-screen-sm md:justify-around py-8 flex-wrap"
-	>
+	<div class="flex flex-col items-center w-full md:flex-row md:justify-around py-8">
 		{#if image}
-			<div class=" mx-8">
+			<div class="md:max-w-screen-sm md:mx-8 w-screen">
 				<img src={image} alt="volume-img" />
 			</div>
 		{/if}
 
-		<div class=" mx-8">
-			<h3 class="pb-4 whitespace-nowrap">
+		<div class=" md:mx-8">
+			<h3 class="pb-4">
 				Formation du {day}
 				<div
 					class="rounded-full px-4 text-sm mr-1 bg-gradient-to-r from-gray-300/70 text-white p-2 leading-none font-perso"
