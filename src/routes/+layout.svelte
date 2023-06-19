@@ -23,7 +23,7 @@
 <div class="app">
 	<Header />
 
-	<main class="mt-[5em] md:mt-0">
+	<main class="mt-[8em] md:mt-0">
 		<slot />
 	</main>
 
