@@ -131,6 +131,8 @@
 							title="Vol.{volume.id}"
 							description={volume.description}
 							href="/choregraphies/{volume.id}"
+							type={volume.type}
+							image={volume.image}
 						/>
 					{/each}
 

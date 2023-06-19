@@ -5,7 +5,7 @@
 
 <div>
 	<ContactSection />
-	<footer class="flex flex-col md:flex-row items-center md:items-start">
+	<footer class="flex flex-col md:flex-row items-center md:items-center">
 		<div class="md:items-start ">
 			<a href="/" class="flex justify-center">
 				<img src={logo} alt="FG sport logo" id="logo-img" />
@@ -16,9 +16,7 @@
 			<p id="footer-title" class="text-2xl mb-4">FG-Sport</p>
 
 			<ul class="items-center flex-col md:items-start">
-				<li><a class="block" href="/confidentiality">Politique de confidentialité</a></li>
 				<li><a class="block" href="/legals">Mentions légales</a></li>
-				<li><a class="block" href="/cgv">CGV</a></li>
 			</ul>
 		</div>
 

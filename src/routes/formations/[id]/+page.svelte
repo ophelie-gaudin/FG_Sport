@@ -36,9 +36,11 @@
 </svelte:head>
 
 <section class="blue-section  py-4 md:py-20 px-10" id="formation-header">
-	<div class="flex items-center py-4 w-full">
-		<span class="material-symbols-outlined mr-4 no-underline light-link"> arrow_back </span>
-		<a href="/formations" class="light-link">Retour aux formations</a>
+	<div class="py-4 w-full md:pt-16">
+		<a href="/formations" class="light-link flex items-center ">
+			<span class="material-symbols-outlined mr-4 light-link"> arrow_back </span>
+			Retour aux formations</a
+		>
 	</div>
 
 	<div class="flex flex-col items-center w-full md:flex-row md:justify-around py-8">

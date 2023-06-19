@@ -43,8 +43,8 @@
 	}
 
 	.corner {
-		width: 5em;
-		height: 5em;
+		width: 8em;
+		height: 8em;
 		display: flex;
 		align-items: center;
 	}
@@ -58,8 +58,8 @@
 	}
 
 	#logo-img {
-		width: 4em;
-		height: 4em;
+		width: 8em;
+		height: 8em;
 		/* max-width: 80px; */
 		object-fit: contain;
 	}
