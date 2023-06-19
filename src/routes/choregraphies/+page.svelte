@@ -21,7 +21,7 @@
 
 <section class="blue-section" id="choregraphies-header">
 	<div class="section-content justify-center">
-		<h3 class="pb-4">{@html section[0].titre}</h3>
+		<h3 class="py-4">{@html section[0].titre}</h3>
 
 		<div class="text-lg">
 			{@html section[0].description}
@@ -48,6 +48,7 @@
 					title="VOL.{choregraphie.id}"
 					type={choregraphie.type}
 					href="/choregraphies/{choregraphie.id}"
+					image={choregraphie.image}
 				/>
 			{/each}
 		</div>

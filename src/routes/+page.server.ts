@@ -1,12 +1,16 @@
 import { supabase } from '$lib/supabaseClient';
 
 export async function load() {
+	const now = new Date();
+	const yesterday = new Date(now.setDate(now.getDate() - 1)).toISOString().toLocaleString();
+
 	const { data: sections } = await supabase.from('sections').select().order('id');
 
 	const { data: formations } = await supabase
 		.from('formations')
-		.select()
+		.select('*')
 		.order('date', { ascending: true })
+		.gte('date', yesterday)
 		.limit(4);
 
 	const { data: volumes } = await supabase

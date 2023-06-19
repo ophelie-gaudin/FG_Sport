@@ -6,20 +6,16 @@
 	export let lieu = '';
 	export let title = '';
 	export let type = 'basic';
+	export let image = '';
 	export let description = '';
 	export let types = {
 		kids: 'https://zupimages.net/up/23/16/kh5j.png',
-		basic: 'https://zupimages.net/up/23/16/3tnv.png'
+		basic: 'https://zupimages.net/up/23/16/3tnv.png',
+		coach: 'https://zupimages.net/up/23/16/18ws.jpg',
+		pratiquant: 'https://zupimages.net/up/23/16/3tnv.png'
 	};
 
 	const typeImg = types[type];
-
-	// const truncateText(text : string) : string{
-	// 	const words = text.split(' ');
-	// 	const truncateWords = words.slice(0, 20);
-	// 	const truncatedText = truncateWords.join(' ');
-	// 	return truncatedText;
-	// 	}
 </script>
 
 <div class="card flex justify-center my-3 md:mx-3 bg-white rounded-lg drop-shadow-md max-w-[250px]">
@@ -30,9 +26,9 @@
 			data-te-ripple-color="light"
 			class="bg-kids-class relative w-full"
 		>
-			<img class="rounded-t-lg w-full" src={typeImg} alt="" />
+			<img class="rounded-t-lg w-full" src={image || typeImg} alt="" />
 			{#if type}
-				<Badge>{type}</Badge>
+				<Badge>{type.toUpperCase()}</Badge>
 			{/if}
 		</a>
 		<div class="p-6 md:flex md:flex-col md:flex-1 md:justify-between">
@@ -43,8 +39,10 @@
 				{@html lieu
 					? `<span class="material-symbols-outlined">
 					location_on
-					</span> ${lieu}`
-					: description}
+					</span> ${lieu && lieu.substring(0, 20) + (lieu.length > 20 ? '...' : '')}`
+					: description
+					? `${description.substring(0, 20) + (description.length > 20 ? '...' : '')}`
+					: ''}
 			</p>
 
 			<div class="card-text w-full mx-auto">

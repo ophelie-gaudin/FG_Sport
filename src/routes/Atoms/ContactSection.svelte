@@ -16,6 +16,10 @@
 				.from('contacts')
 				.insert([{ email, sujet: subject, telephone: phone, message }]);
 			success = true;
+			setTimeout(() => {
+				// success = false;
+				window.location.reload();
+			}, 5000);
 		} catch (err) {
 			return err;
 		}
