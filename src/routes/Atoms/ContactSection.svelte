@@ -72,7 +72,7 @@
 						<option value="other">Autre</option>
 					</select>
 				</div>
-				<div class="right-side">
+				<div class="right-side flex flex-col items-center md:items-end">
 					<textarea
 						required
 						bind:value={message}
