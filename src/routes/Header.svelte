@@ -23,10 +23,15 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 
-<header class="fixed bg-white md:bg-white/0  md:h-[150px]">
-	<div class="corner">
+<header class="fixed bg-white md:bg-white/0  md:h-[150px] flex items-center md:items-start">
+	<div class="corner md:h-[8em] md:mt-1vh">
 		<a href="/">
-			<img id="logo-img" class="ml-12 md:mt-4" src={logo} alt="FG sport logo" />
+			<img
+				id="logo-img"
+				class="ml-2 md:ml-12 md:mt-4 w-28 h-[80%] md:h-[8em]"
+				src={logo}
+				alt="FG sport logo"
+			/>
 		</a>
 	</div>
 	<Navbar />
@@ -43,8 +48,7 @@
 	}
 
 	.corner {
-		width: 8em;
-		height: 8em;
+		@apply h-[80px];
 		display: flex;
 		align-items: center;
 	}
@@ -58,9 +62,7 @@
 	}
 
 	#logo-img {
-		width: 8em;
-		height: 8em;
-		/* max-width: 80px; */
+		@apply h-full;
 		object-fit: contain;
 	}
 </style>
