@@ -16,16 +16,16 @@
 	/>
 </svelte:head>
 
-<section class="blue-section py-4 md:py-20 px-12" id="choregraphie-header">
+<section class="blue-section py-4 md:py-20 md:px-12" id="choregraphie-header">
 	<div class=" py-4 w-full md:pt-16">
 		<a href="/choregraphies" class="light-link flex items-center">
-			<span class="material-symbols-outlined mr-4 no-underline light-link"> arrow_back </span>Retour
+			<span class="material-symbols-outlined mx-4 no-underline light-link"> arrow_back </span>Retour
 			aux chorégraphies</a
 		>
 	</div>
 
-	<div class="flex flex-col md:flex-row md:justify-around md:w-full py-8">
-		<div class="max-w-screen-sm mx-8">
+	<div class="flex flex-col md:flex-row md:justify-around md:w-full py-8  max-w-full">
+		<div class="flex justify-center md:max-w-screen-sm md:mx-8">
 			{#if teaser}
 				{@html teaser}
 			{:else if image}
@@ -69,5 +69,15 @@
 
 	#choregraphie-header {
 		min-height: 40vh;
+	}
+
+	iframe {
+		max-width: 100%;
+	}
+
+	@media (max-width: 650px) {
+		iframe {
+			max-width: 100%;
+		}
 	}
 </style>
