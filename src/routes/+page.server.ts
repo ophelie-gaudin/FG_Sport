@@ -1,6 +1,10 @@
 import { supabase } from '$lib/supabaseClient';
 
-export async function load() {
+export async function load({ setHeaders }) {
+	setHeaders({
+		'cache-control': 'no-cache'
+	});
+
 	const now = new Date();
 	const yesterday = new Date(now.setDate(now.getDate() - 1)).toISOString().toLocaleString();
 
