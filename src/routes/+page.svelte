@@ -84,6 +84,11 @@
 			data-show-facepile="false"
 		/>
 	</div>
+
+	{#if sections[2].image}
+		<h3 class="text-center pb-4">{@html sections[2].sous_titre}</h3>
+		<img id="event-img" src={sections[2].image} alt="event" />
+	{/if}
 </section>
 
 <section id="services">
@@ -272,5 +277,11 @@
 	#ghislain-img {
 		background: url('https://zupimages.net/up/23/16/hmeg.jpg') no-repeat;
 		background-size: cover;
+	}
+
+	#event-img {
+		background-size: contain;
+		max-width: 300px;
+		margin-bottom: 4rem;
 	}
 </style>
