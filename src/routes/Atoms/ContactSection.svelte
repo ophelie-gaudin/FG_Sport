@@ -69,6 +69,7 @@
 						<option value="" disabled selected>Sélectionnez un objet</option>
 						<option value="formations">Informations sur les formations</option>
 						<option value="choregraphies">Informations sur les chorégraphies</option>
+						<option value="choregraphies">Achat de matériel (trampoline)</option>
 						<option value="other">Autre</option>
 					</select>
 				</div>

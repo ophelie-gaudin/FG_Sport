@@ -15,13 +15,13 @@ export async function load({ setHeaders }) {
 		.select('*')
 		.order('date', { ascending: true })
 		.gte('date', yesterday)
-		.limit(4);
+		.limit(3);
 
 	const { data: volumes } = await supabase
 		.from('volumes')
 		.select('*')
 		.order('date_publication', { ascending: false })
-		.limit(4);
+		.limit(3);
 
 	return {
 		sections: sections ?? [],
