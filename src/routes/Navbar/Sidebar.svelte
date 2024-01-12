@@ -67,18 +67,6 @@
 		margin: 1rem 0 1rem 0;
 	}
 
-	input {
-		width: 40px;
-		height: 40px;
-		position: absolute;
-		opacity: 0;
-		top: 0;
-		left: 0;
-		margin: 0;
-		z-index: 3;
-		cursor: pointer;
-	}
-
 	.arrow {
 		font-weight: 900;
 		font-size: 1.2rem;
